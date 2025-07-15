@@ -4,148 +4,130 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Skor Photography</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Montserrat', sans-serif;
-    }
-
     body {
-      background-color: #0d0d0d;
-      color: #fff;
-      line-height: 1.6;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #111;
+      color: #f9f9f9;
+      overflow-x: hidden;
     }
-
     header {
-      background: url('banner.jpg') no-repeat center center/cover;
-      height: 80vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background-color: #000;
+      padding: 40px 20px;
       text-align: center;
+      animation: fadeInDown 1s ease;
     }
-
     header h1 {
       font-size: 3em;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      border-radius: 10px;
+      margin: 0;
+      color: crimson;
     }
-
-    nav {
-      background: #111;
-      padding: 10px 0;
-      text-align: center;
+    header p {
+      margin: 10px 0 0;
+      font-style: italic;
+      color: #ccc;
     }
-
-    nav a {
-      color: #f50057;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 20px;
-      padding: 40px;
-      animation: fadeIn 2s ease-in;
+      padding: 40px 20px;
+      animation: fadeIn 1.5s ease;
     }
-
     .gallery img {
-      width: 100%;
-      border-radius: 8px;
-      transition: transform 0.3s ease, filter 0.3s ease;
+      max-width: 300px;
+      border-radius: 10px;
+      border: 2px solid #222;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-
     .gallery img:hover {
       transform: scale(1.05);
-      filter: grayscale(0%) brightness(110%);
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
     }
-
-    .cta {
-      background: #1a1a1a;
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    .cta p {
-      font-size: 1.2em;
-      margin-bottom: 20px;
-    }
-
-    .cta a {
-      background: #f50057;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .cta a:hover {
-      background: #c51162;
-    }
-
     footer {
-      background: #111;
+      background-color: #000;
+      padding: 20px;
       text-align: center;
-      padding: 15px;
+      color: #999;
       font-size: 0.9em;
     }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .contact {
+      padding: 40px 20px;
+      background-color: #1a1a1a;
+      text-align: center;
     }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2em;
-      }
+    .contact h2 {
+      color: crimson;
+      margin-bottom: 20px;
+    }
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      background-color: #222;
+      color: #fff;
+    }
+    button {
+      background-color: crimson;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: darkred;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>Skor Photography</h1>
+    <p>Capturing moments that last forever</p>
   </header>
 
-  <nav>
-    <a href="#gallery">Gallery</a>
-    <a href="https://www.viewbug.com/member/skorphoto" target="_blank">ViewBug</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <section class="gallery" id="gallery">
-    <img src="compressedphoto.jpg" alt="Sample 1">
-    <img src="compressedphoto2.jpg" alt="Sample 2">
+  <section class="gallery">
+    <img src="compressedphoto.jpg" alt="Gallery Photo 1">
+    <img src="compressedphoto2.jpg" alt="Gallery Photo 2">
+  
   </section>
 
-  <section class="cta">
-    <p>"Photography is the art of freezing time." – Alf</p>
-    <a href="mailto:yourname@example.com">Get in Touch</a>
+  <section class="contact">
+    <h2>Contact</h2>
+    <form action="https://formspree.io/f/xpzvnklw" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
   </section>
 
   <footer>
     &copy; 2025 Skor Photography. All rights reserved.
   </footer>
-
 </body>
 </html>
-
